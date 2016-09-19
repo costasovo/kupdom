@@ -1,0 +1,8 @@
+<div>
+	<input type="checkbox" [checked]="item.isChecked" (change)="toggleDone()">
+	<span *ngIf="!isInEditMode" (click)="isInEditMode=!isInEditMode">{{item.name}}</span>
+	<span *ngIf="isInEditMode">
+		<input #itName type="text" [value]="item.name">
+		<button (click)="updateName(itName.value)">Ok</button>
+	</span>
+</div> 
