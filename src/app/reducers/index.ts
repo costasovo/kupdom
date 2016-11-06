@@ -1,6 +1,6 @@
 export { 
 	items,
 	ADD_ITEM,
-	CHANGE_ITEM_NAME,
-	TOGGLE_ITEM_CHECKED
+	CHANGE_ITEM,
+	DATABASE_UPDATED
 } from './items';

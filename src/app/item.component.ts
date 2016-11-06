@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
-import { Item } from './models';
-import { CHANGE_ITEM_NAME, TOGGLE_ITEM_CHECKED } from './reducers/index';
+import { Item, ItemValue } from './models';
+import { CHANGE_ITEM } from './reducers/index';
 
 @Component({
     selector: 'item',
@@ -14,14 +14,22 @@ export class ItemComponent {
     action = new EventEmitter();
 
     updateName(name: string) {
-        if (name !== this.item.$value.name) {
-            this.action.emit({ type: CHANGE_ITEM_NAME, payload: {key: this.item.$key, name} });
+        if (name !== this.item.value.name) {
+            let value: ItemValue = {
+                name: name,
+                isChecked: this.item.value.isChecked
+            }
+            this.action.emit({ type: CHANGE_ITEM, payload: {key: this.item.$key, value} });
         }
         this.isInEditMode = false;
     }
 
     toggleDone() {
-        this.action.emit({ type: TOGGLE_ITEM_CHECKED, payload: {key: this.item.$key, isChecked: this.item.$value.isChecked}});
+        let value: ItemValue = {
+            name: this.item.value.name,
+            isChecked: !this.item.value.isChecked
+        }
+        this.action.emit({ type: CHANGE_ITEM, payload: {key: this.item.$key, value} });
         this.isInEditMode = false;
     }
 }

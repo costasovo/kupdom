@@ -5,5 +5,5 @@ export interface ItemValue {
 
 export interface Item {
 	$key: string;
-	$value: ItemValue;
+	value: ItemValue;
 }
