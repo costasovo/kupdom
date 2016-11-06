@@ -14,14 +14,14 @@ export class ItemComponent {
     action = new EventEmitter();
 
     updateName(name: string) {
-        if (name !== this.item.name) {
-            this.action.emit({ type: CHANGE_ITEM_NAME, payload: {id: this.item.id, name} });
+        if (name !== this.item.$value.name) {
+            this.action.emit({ type: CHANGE_ITEM_NAME, payload: {key: this.item.$key, name} });
         }
         this.isInEditMode = false;
     }
 
     toggleDone() {
-        this.action.emit({ type: TOGGLE_ITEM_CHECKED, payload: {id: this.item.id} });
+        this.action.emit({ type: TOGGLE_ITEM_CHECKED, payload: {key: this.item.$key, isChecked: this.item.$value.isChecked}});
         this.isInEditMode = false;
     }
 }

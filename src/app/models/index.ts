@@ -1,1 +1,1 @@
-export { Item } from './item';
+export { Item, ItemValue } from './item';

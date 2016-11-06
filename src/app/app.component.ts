@@ -14,7 +14,7 @@ export class AppComponent {
 	itemsToBuy: Observable<Item[]>;
 
 	constructor( public store: Store<AppStore> ) {
-		this.itemsToBuy = store.select('items');
+		this.itemsToBuy = store.select(s => s.items);
 	}
 
 	addItem() {
