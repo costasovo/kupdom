@@ -1,10 +1,12 @@
 <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
 
-<h1>Kup dom</h1>
+<h1>Kup Dom</h1>
+
+<p>Tak co je potřeba kupit?</p>
 
 <p *ngIf="itemsToBuy.length === 0">Seznam je prázdný.</p>
 
-<div>
+<div class="row">
     <item *ngFor="let itemToBuy of itemsToBuy | async" [item]="itemToBuy" (action)="store.dispatch($event)"></item>
 </div>
 
