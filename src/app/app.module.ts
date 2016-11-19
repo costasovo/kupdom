@@ -19,14 +19,14 @@ import { items } from './reducers/index'
 import { ItemsEffects } from './effects/items'
 
 let storeModule: ModuleWithProviders = StoreModule.provideStore({items}, {items: []});
+let storeEffectsModule = EffectsModule.run(ItemsEffects);
 let storeDevtoolsModule: ModuleWithProviders = StoreDevtoolsModule.instrumentStore({
 	maxAge: 10,
 	monitor: useLogMonitor({
 		visible: true,
 		position: 'right'
-		})
 	})
-let storeEffectsModule = EffectsModule.run(ItemsEffects)
+});
 
 // Firebase 
 // Must export the config
@@ -38,7 +38,7 @@ export const firebaseConfig = {
 	messagingSenderId: config.firebase.messagingSenderId
 };
 
-let moduleConfig = {
+let moduleConfig: {declarations: Array<any>, imports: Array<any>, providers: Array<any>, bootstrap: Array<any>} = {
 	declarations: [
  		AppComponent,
 		ListComponent,
@@ -50,8 +50,8 @@ let moduleConfig = {
 		HttpModule,
 		storeModule,
 		storeDevtoolsModule,
-		storeEffectsModule,
 		StoreLogMonitorModule,
+		storeEffectsModule,
 		AngularFireModule.initializeApp(firebaseConfig),
 	],
 	providers: [],
