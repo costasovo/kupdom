@@ -12,6 +12,7 @@ import { config } from './config';
 // Components
 import { AppComponent }  from './app.component';
 import { ItemComponent }  from './item.component';
+import { ListComponent }  from './list.component';
 
 // Store completition (reducers, effets and monitoring)
 import { items } from './reducers/index'
@@ -37,9 +38,10 @@ export const firebaseConfig = {
 	messagingSenderId: config.firebase.messagingSenderId
 };
 
-@NgModule({
+let moduleConfig = {
 	declarations: [
  		AppComponent,
+		ListComponent,
 		ItemComponent
 	],
 	imports: [
@@ -54,5 +56,7 @@ export const firebaseConfig = {
 	],
 	providers: [],
 	bootstrap: [AppComponent]
-})
+}
+
+@NgModule(moduleConfig)
 export class AppModule { }

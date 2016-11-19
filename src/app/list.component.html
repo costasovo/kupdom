@@ -1,0 +1,7 @@
+<p *ngIf="itemsToBuy.length === 0">Seznam je prázdný.</p>
+
+<div class="row">
+	<item *ngFor="let itemToBuy of itemsToBuy | async" [item]="itemToBuy" (action)="store.dispatch($event)"></item>
+</div>
+
+<button (click)="addItem()">Přidej položku</button>
