@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { ADD_ITEM, DATABASE_UPDATED, CHANGE_ITEM } from '../reducers/index';
+import { ADD_ITEM, DATABASE_UPDATED, CHANGE_ITEM, REMOVE_ITEM } from '../reducers/index';
 import { Item, ItemValue } from '../models/index';
 import { AppStore } from '../store';
 import { Action } from '@ngrx/store';
@@ -41,5 +41,11 @@ export class ItemsEffects {
 		.ofType(CHANGE_ITEM)
 		.map((action: Action) => { 
 			this.items.update(action.payload.key, {value: action.payload.value});
+		});
+
+	@Effect({dispatch: false}) removeItem = this.actions$
+		.ofType(REMOVE_ITEM)
+		.map((action: Action) => { 
+			this.items.remove(action.payload.key);
 		});
 }

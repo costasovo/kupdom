@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Item, ItemValue } from './models';
-import { CHANGE_ITEM } from './reducers/index';
+import { CHANGE_ITEM, REMOVE_ITEM } from './reducers/index';
 
 @Component({
     selector: 'item',
@@ -14,7 +14,9 @@ export class ItemComponent {
     action = new EventEmitter();
 
     updateName(name: string) {
-        if (name !== this.item.value.name) {
+        if (name === '') {
+            this.action.emit({ type: REMOVE_ITEM, payload: {key: this.item.$key} });
+        } else if (name !== this.item.value.name) {
             let value: ItemValue = {
                 name: name,
                 isChecked: this.item.value.isChecked
