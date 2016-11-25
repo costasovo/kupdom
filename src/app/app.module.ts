@@ -8,10 +8,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { AngularFireModule } from 'angularfire2';
 import { config } from './config';
+import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent }  from './app.component';
 import { ItemComponent }  from './item.component';
+import { ListPageComponent }  from './list-page.component';
 import { ListComponent }  from './list.component';
 
 // Store completition (reducers, effets and monitoring)
@@ -41,6 +43,7 @@ export const firebaseConfig = {
 let moduleConfig: {declarations: Array<any>, imports: Array<any>, providers: Array<any>, bootstrap: Array<any>} = {
 	declarations: [
  		AppComponent,
+		ListPageComponent,
 		ListComponent,
 		ItemComponent
 	],
@@ -48,6 +51,7 @@ let moduleConfig: {declarations: Array<any>, imports: Array<any>, providers: Arr
 		BrowserModule,
 		FormsModule,
 		HttpModule,
+		AppRoutingModule,
 		storeModule,
 		storeDevtoolsModule,
 		StoreLogMonitorModule,

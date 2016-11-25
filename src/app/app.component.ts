@@ -1,12 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { environment } from '../environments/environment';
-
+import { Component } from '@angular/core';
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-	changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-root',
+  templateUrl: './app.component.html',
 })
-export class AppComponent { 
-	isDev: boolean = !environment.production;
-	constructor( ) {}
+export class AppComponent {
+  title = 'Tour of Heroes';
 }

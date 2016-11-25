@@ -16,8 +16,8 @@ import 'rxjs/add/operator/mergeMap';
 export class ItemsEffects {
 	items: FirebaseListObservable<any>
 
-	constructor(private actions$: Actions, public store: Store<AppStore>, af: AngularFire, ) { 
-		this.items = af.database.list('/items1');
+	constructor(private actions$: Actions, public store: Store<AppStore>, af: AngularFire) { 
+		this.items = af.database.list('/lists/ididi');
 		this.items.subscribe((data) => {
 			let updateAction: Action = {
 				type: DATABASE_UPDATED,
