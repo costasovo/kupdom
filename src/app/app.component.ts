@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styles: ['h1 span { color: #026ecc; }']
 })
 export class AppComponent {
   isDev: boolean = !environment.production;

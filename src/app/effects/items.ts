@@ -31,7 +31,7 @@ export class ItemsEffects {
 		.ofType(ADD_ITEM)
 		.map(() => { 
 			let newItem: ItemValue = {
-				name: 'Nova polozka',
+				name: 'ještě toto kup',
 				isChecked: false,
 			};
 			this.items.push({value: newItem});
