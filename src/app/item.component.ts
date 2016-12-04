@@ -4,7 +4,8 @@ import { CHANGE_ITEM, REMOVE_ITEM } from './reducers/index';
 
 @Component({
     selector: 'item',
-    templateUrl: './item.component.html'
+    templateUrl: './item.component.html',
+    styleUrls:  ['item.component.css']
 })
 export class ItemComponent {
     @Input()
@@ -24,6 +25,11 @@ export class ItemComponent {
             this.action.emit({ type: CHANGE_ITEM, payload: {key: this.item.$key, value} });
         }
         this.isInEditMode = false;
+    }
+
+    removeItem() {
+         this.action.emit({ type: REMOVE_ITEM, payload: {key: this.item.$key} });
+         this.isInEditMode = false;
     }
 
     toggleDone() {

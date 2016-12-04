@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { environment } from '../environments/environment';
 
 @Component({
     selector: 'list-page',
@@ -7,6 +6,5 @@ import { environment } from '../environments/environment';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListPageComponent { 
-	isDev: boolean = !environment.production;
 	constructor( ) {}
 }

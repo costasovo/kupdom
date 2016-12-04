@@ -1,8 +1,9 @@
-<div>
+<div class="list-group-item form-inline form-group">
 	<input type="checkbox" [checked]="item.value.isChecked" (change)="toggleDone()">
 	<span *ngIf="!isInEditMode" (click)="isInEditMode=!isInEditMode">{{item.value.name}}</span>
 	<span *ngIf="isInEditMode">
-		<input #itName type="text" [value]="item.value.name">
-		<button (click)="updateName(itName.value)">Ok</button>
+		<input #itName type="text" [value]="item.value.name" class="form-control">
+		<button (click)="updateName(itName.value)" class="btn btn-primary">Ulož</button>
+		<button (click)="removeItem()" class="btn btn-danger">Smaž</button>
 	</span>
 </div> 
