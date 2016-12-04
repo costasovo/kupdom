@@ -2,7 +2,7 @@
 	<input type="checkbox" [checked]="item.value.isChecked" (change)="toggleDone()">
 	<span *ngIf="!isInEditMode" (click)="isInEditMode=!isInEditMode">{{item.value.name}}</span>
 	<span *ngIf="isInEditMode">
-		<input #itName type="text" [value]="item.value.name" class="form-control">
+		<input #itName type="text" [value]="item.value.name" class="form-control" (keypress)="updateOnEnter($event, itName.value);">
 		<button (click)="updateName(itName.value)" class="btn btn-primary">Ulož</button>
 		<button (click)="removeItem()" class="btn btn-danger">Smaž</button>
 	</span>

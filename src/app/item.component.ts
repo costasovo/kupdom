@@ -27,6 +27,12 @@ export class ItemComponent {
         this.isInEditMode = false;
     }
 
+    updateOnEnter(event: KeyboardEvent, name: string) {
+        if (event.keyCode === 13) {
+            this.updateName(name);
+        }
+    }
+
     removeItem() {
          this.action.emit({ type: REMOVE_ITEM, payload: {key: this.item.$key} });
          this.isInEditMode = false;
