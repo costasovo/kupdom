@@ -1,3 +1,6 @@
 .active {
 	border-color: #026ecc;
 }
+input[type="checkbox"] {
+	margin-right: 0.5rem;
+}

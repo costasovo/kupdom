@@ -1,9 +1,9 @@
-<div class="list-group-item form-inline list-group-item-action" (click)="toggleDone()" [ngClass]="{'active': item.value.isChecked}">
-	<!-- input type="checkbox" [checked]="item.value.isChecked" (change)="toggleDone()"-->
+<div class="list-group-item form-inline list-group-item-action" (click)="toggleDone()">
+	<input *ngIf="!isInEditMode" type="checkbox" [checked]="item.value.isChecked" (change)="toggleDone();$event.stopPropagation();">
 	<span *ngIf="!isInEditMode" (click)="isInEditMode=!isInEditMode;$event.stopPropagation();">{{item.value.name}}</span>
 	<span *ngIf="isInEditMode" class="form-group">
 		<input #itName type="text" (click)="$event.stopPropagation();" [value]="item.value.name" class="form-control" (keypress)="updateOnEnter($event, itName.value);">
-		<button (click)="updateName(itName.value);$event.stopPropagation();" class="btn btn-secondary">Ulož</button>
-		<button (click)="removeItem();$event.stopPropagation();" class="btn btn-danger">Smaž</button>
+		<button (click)="updateName(itName.value);$event.stopPropagation();" class="btn btn-outline-primary">Ulož</button>
+		<button (click)="removeItem();$event.stopPropagation();" class="btn btn-outline-danger">Smaž</button>
 	</span>
 </div> 
