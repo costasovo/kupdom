@@ -1,3 +1,3 @@
 Hi.
 
-[Test](Test.mp)
+[Test](Test.md)
